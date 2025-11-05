@@ -1,4 +1,4 @@
-# JobScan Lite — Offline Keyword Match
+# ResuMatch — Free Offline Keyword Analyzer
 
 Production-ready Chrome extension for comparing job descriptions and résumés with TF-IDF analysis, completely offline.
 
@@ -29,11 +29,11 @@ Production-ready Chrome extension for comparing job descriptions and résumés w
 2. **Check the Console** (right-click → Inspect → Console tab)
 3. You should see:
    ```
-   🚀 JobScan Lite initializing...
+   🚀 ResuMatch initializing...
    ✅ Utilities loaded
    ✅ All DOM elements found
    ✅ Event listeners attached
-   ✅ JobScan Lite ready!
+   ✅ ResuMatch ready!
    ```
 
 4. **Test the interface:**
@@ -202,7 +202,7 @@ communication, collaboration, leadership, problem solving, critical thinking, ti
 Ready for Chrome Web Store:
 
 ```bash
-zip -r jobscan-lite.zip jobscan-lite/ -x "*.DS_Store" "*/test-*"
+zip -r resumatch.zip jobscan-lite/ -x "*.DS_Store" "*/test-*"
 ```
 
 ## 🎯 Version
