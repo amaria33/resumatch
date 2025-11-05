@@ -1,0 +1,292 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║              ✨ NEW FEATURES & IMPROVEMENTS ✨               ║
+║                                                              ║
+║         Settings Explained + Side Panel Optimized           ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  1️⃣  SETTINGS SLIDERS NOW EXPLAINED!                         ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+We've added clear explanations so you know what each slider does!
+
+┌─ What You'll See Now ─────────────────────────────────────┐
+│                                                            │
+│  Settings                                                  │
+│  💡 Adjust weights to emphasize different keyword types.  │
+│     Higher weights = more important. [Learn more]         │
+│                                                            │
+│  Title Weight                               1.2x          │
+│  ━━━━━━━━━━━●━━━━━━━━━━                                  │
+│  Boosts keywords from Job Title field                     │
+│                                                            │
+│  Hard Skills                                1.5x          │
+│  ━━━━━━━━━━━━●━━━━━━━━━                                  │
+│  Technical tools & systems (Excel, SQL, etc.)             │
+│                                                            │
+│  Soft Skills                                1.0x          │
+│  ●━━━━━━━━━━━━━━━━━━━━━                                  │
+│  Leadership, communication, teamwork                      │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┌─ Click "Learn More" to See ──────────────────────────────┐
+│                                                            │
+│  SETTINGS GUIDE - Weight Sliders                          │
+│                                                            │
+│  🎚️ TITLE WEIGHT (1.0x - 2.0x, Default: 1.2x)           │
+│  • Boosts keywords from the Job Title field               │
+│  • Increase for specialized titles: "Senior Python Dev"   │
+│  • Example: At 1.5x, title words count ~1× extra          │
+│                                                            │
+│  🎚️ HARD SKILLS WEIGHT (1.0x - 3.0x, Default: 1.5x)     │
+│  • Boosts technical skills & tools found in the JD        │
+│  • Includes: Workday, SAP, Excel, SQL, Python, etc.       │
+│  • Increase (2-3x) for technical roles                    │
+│  • Example: At 2.0x, "SQL" counts ~2× extra               │
+│                                                            │
+│  🎚️ SOFT SKILLS WEIGHT (1.0x - 2.0x, Default: 1.0x)     │
+│  • Boosts interpersonal skills found in the JD            │
+│  • Includes: Leadership, Communication, etc.              │
+│  • Increase (1.5-2x) for management positions             │
+│                                                            │
+│  📊 RECOMMENDED SETTINGS:                                 │
+│  Technical Roles:   Title 1.3x, Hard 2-3x, Soft 1.0x     │
+│  Management Roles:  Title 1.5-2x, Hard 1.0-1.2x, Soft 1.5-2x │
+│  HR/Operations:     Title 1.2x, Hard 1.5-2x, Soft 1.3-1.5x │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┌─ New Documentation File ──────────────────────────────────┐
+│                                                            │
+│  📘 SETTINGS-GUIDE.md (400+ lines)                        │
+│                                                            │
+│  Complete guide covering:                                 │
+│  ✅ What each slider does                                │
+│  ✅ How weights affect your score                        │
+│  ✅ When to increase/decrease each weight                │
+│  ✅ Recommended settings by role type                    │
+│  ✅ Visual examples with calculations                    │
+│  ✅ Pro tips and common questions                        │
+│  ✅ Quick reference card                                 │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  2️⃣  SIDE PANEL VIEW OPTIMIZED!                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+The extension now fits perfectly when pinned to Chrome's side panel!
+
+┌─ Before (Broken) ─────────────────────────────────────────┐
+│                                                            │
+│  Side Panel (narrow)                                      │
+│  ┌──────────────────────┐                                │
+│  │ JobScan Lite         │                                │
+│  │ ══════════════════════                                │
+│  │ [3 sliders cramped]──>│ Overflow!                     │
+│  │ [Text too big] ──────>│ Can't see everything          │
+│  │ [Tables cut off] ────>│ Need to scroll horizontally   │
+│  └──────────────────────┘                                │
+│                                                            │
+│  ❌ Sliders in 3-column grid (cramped)                   │
+│  ❌ Text too large for narrow space                      │
+│  ❌ Tables overflow past edges                           │
+│  ❌ Buttons wrap awkwardly                               │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┌─ After (Fixed) ───────────────────────────────────────────┐
+│                                                            │
+│  Side Panel (narrow)                                      │
+│  ┌──────────────────────┐                                │
+│  │ JobScan Lite         │                                │
+│  │ ══════════════════════                                │
+│  │ Title Weight   1.2x  │ ← Vertical                    │
+│  │ ━━━━━●━━━━━         │    Stack!                     │
+│  │                      │                                │
+│  │ Hard Skills    1.5x  │                               │
+│  │ ━━━━━━●━━━━          │                                │
+│  │                      │                                │
+│  │ Soft Skills    1.0x  │                               │
+│  │ ●━━━━━━━━━━━         │                                │
+│  │                      │                                │
+│  │ [Analyze] [Clear]    │ ← Perfect fit                 │
+│  └──────────────────────┘                                │
+│                                                            │
+│  ✅ Sliders stack vertically (1 column)                  │
+│  ✅ Text sizes optimized for readability                 │
+│  ✅ Tables scroll horizontally when needed               │
+│  ✅ All content fits in viewport                         │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┌─ Responsive Breakpoints ──────────────────────────────────┐
+│                                                            │
+│  650px (Desktop Popup)                                    │
+│  • Full size layout                                       │
+│  • 3-column slider grid                                   │
+│  • Standard text sizes                                    │
+│                                                            │
+│  400-500px (Side Panel)  ← Most common                   │
+│  • Sliders stack vertically                               │
+│  • Reduced padding & spacing                              │
+│  • Slightly smaller text                                  │
+│  • Tables scroll horizontally                             │
+│                                                            │
+│  <400px (Very Narrow)                                     │
+│  • Extra compact mode                                     │
+│  • Minimal padding                                        │
+│  • Smaller text throughout                                │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  COMPARISON TABLE                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+┌──────────────────┬─────────────────┬─────────────────────┐
+│ Element          │ Before          │ After               │
+├──────────────────┼─────────────────┼─────────────────────┤
+│ Slider Layout    │ 3 columns       │ 1 column (narrow)   │
+│ Slider Help      │ None            │ Text under each     │
+│ Settings Guide   │ None            │ "Learn more" link   │
+│ Documentation    │ None            │ 400+ line guide     │
+│ Side Panel Fit   │ Overflow        │ Perfect fit         │
+│ Text Size        │ Too large       │ Optimized           │
+│ Tables           │ Cut off         │ Scroll horizontally │
+│ User Experience  │ Confusing       │ Clear & polished    │
+└──────────────────┴─────────────────┴─────────────────────┘
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  FILES UPDATED                                               ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+✅ popup-full.html
+   • Added settings explanation paragraph
+   • Added "Learn more" link
+   • Added help text under each slider
+
+✅ popup-fixed.js
+   • Added showSettingsHelp() function
+   • Help dialog with quick reference
+   • Attached to "Learn more" link
+
+✅ styles.css
+   • Responsive width support (320-650px)
+   • Media query for ≤500px (side panel)
+   • Media query for ≤400px (very narrow)
+   • Vertical slider stacking
+   • +175 lines of responsive CSS
+
+✅ SETTINGS-GUIDE.md (NEW)
+   • Complete 400+ line documentation
+   • Detailed slider explanations
+   • Role-based recommendations
+   • Examples and calculations
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  HOW TO USE THE NEW FEATURES                                 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+1️⃣  Learn About Settings:
+   • Look at the help text under each slider
+   • Click "Learn more" for quick guide
+   • Open SETTINGS-GUIDE.md for details
+
+2️⃣  Adjust Based on Role:
+   • Technical jobs → Increase Hard Skills (2-3x)
+   • Management jobs → Increase Soft Skills (1.5-2x)
+   • Balanced jobs → Keep defaults
+
+3️⃣  Use Side Panel:
+   • Click "📌 Pin to Side" button
+   • Extension opens in side panel
+   • Stays open while you browse
+   • Layout automatically adapts!
+
+4️⃣  Understand the Impact:
+   • Higher weight = more important keywords
+   • Only helps if you HAVE those keywords
+   • Missing weighted keywords = lower score
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  DEPLOYMENT                                                  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+The updates are already in popup-fixed.js!
+
+If using the full version:
+   cd /Users/ashleymaria/chrome-boiler/chrome-boiler/jobscan-lite
+   ./switch-to-full.sh
+
+Then reload extension:
+   chrome://extensions/ → Click RELOAD
+
+Test it:
+   1. Open extension (regular popup)
+   2. See help text under sliders ✅
+   3. Click "Learn more" → Help dialog ✅
+   4. Click "📌 Pin to Side"
+   5. Side panel opens with perfect layout ✅
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  VERIFICATION CHECKLIST                                      ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+After deploying, verify:
+
+Regular Popup (650px):
+  [ ] Sliders show in 3-column grid
+  [ ] Help text appears under each slider
+  [ ] "Learn more" link is visible
+  [ ] Clicking "Learn more" shows help dialog
+  [ ] Help dialog explains all 3 sliders
+
+Side Panel View:
+  [ ] Click "📌 Pin to Side" button
+  [ ] Side panel opens on right
+  [ ] Sliders stack vertically (1 column)
+  [ ] No horizontal overflow
+  [ ] All text is readable
+  [ ] Tables scroll horizontally if needed
+  [ ] Buttons fit properly
+  [ ] Help text still visible
+
+Documentation:
+  [ ] SETTINGS-GUIDE.md file exists
+  [ ] File has 400+ lines
+  [ ] Covers all 3 sliders
+  [ ] Has role-based recommendations
+
+
+══════════════════════════════════════════════════════════════
+
+                    ✨ BOTH FEATURES COMPLETE ✨
+
+  1️⃣  Settings sliders now have clear explanations
+     with inline help and comprehensive documentation
+
+  2️⃣  Side panel view is fully optimized for narrow
+     widths with responsive design
+
+══════════════════════════════════════════════════════════════
+
+For detailed technical information, see:
+  📘 SETTINGS-AND-UI-UPDATE.md
+
+══════════════════════════════════════════════════════════════
+

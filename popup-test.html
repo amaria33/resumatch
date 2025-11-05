@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobScan Lite - Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>JobScan Lite — TEST VERSION</h1>
+    <p>Testing if buttons and sliders work</p>
+  </div>
+
+  <!-- Main container -->
+  <div class="container">
+    <!-- Test Section -->
+    <section class="section">
+      <h2 class="section-title">Quick Test</h2>
+      
+      <div class="form-group">
+        <label for="titleWeight">Title Weight Test</label>
+        <input type="range" id="titleWeight" min="1.0" max="2.0" step="0.1" value="1.2">
+        <span id="titleWeightValue">1.2x</span>
+      </div>
+
+      <div class="button-group">
+        <button class="btn-primary" id="analyzeBtn">Test Analyze Button</button>
+        <button class="btn-secondary" id="clearBtn">Test Clear Button</button>
+      </div>
+      
+      <p style="margin-top: 20px; font-size: 12px; color: #a1a1aa;">
+        Open DevTools Console (Right-click → Inspect → Console) to see test results
+      </p>
+    </section>
+  </div>
+
+  <!-- Load utility scripts first -->
+  <script src="utils/text.js"></script>
+  <script src="utils/tfidf.js"></script>
+  
+  <!-- Load simple test script -->
+  <script src="popup-simple.js"></script>
+</body>
+</html>
+

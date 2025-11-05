@@ -1,0 +1,142 @@
+╔══════════════════════════════════════════════════════════╗
+║          JOBSCAN LITE - QUICK FIX GUIDE                  ║
+║          Buttons & Sliders Not Working?                  ║
+╚══════════════════════════════════════════════════════════╝
+
+┌─ OPTION 1: Run Test Script (Easiest) ────────────────────┐
+│                                                           │
+│  In Terminal:                                            │
+│  cd jobscan-lite                                         │
+│  ./run-test.sh                                           │
+│                                                           │
+│  Then:                                                    │
+│  1. Open chrome://extensions/                            │
+│  2. Reload the extension                                 │
+│  3. Click extension icon                                 │
+│  4. Open Console (Right-click → Inspect)                 │
+│  5. Click buttons - should show alerts!                  │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ OPTION 2: Manual Test Steps ────────────────────────────┐
+│                                                           │
+│  Step 1: Backup & Switch                                 │
+│    cp manifest.json manifest-original.json               │
+│    cp manifest-test.json manifest.json                   │
+│                                                           │
+│  Step 2: Reload Extension                                │
+│    chrome://extensions/ → Click Reload                   │
+│                                                           │
+│  Step 3: Test                                            │
+│    Open extension → Open Console → Click buttons         │
+│                                                           │
+│  Step 4: Restore                                         │
+│    cp manifest-original.json manifest.json               │
+│    chrome://extensions/ → Click Reload                   │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ OPTION 3: Open Test Page Directly ──────────────────────┐
+│                                                           │
+│  Open test.html in Chrome:                               │
+│    file:///path/to/jobscan-lite/test.html               │
+│                                                           │
+│  OR drag test.html into Chrome                           │
+│                                                           │
+│  This tests if scripts work outside extension context    │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ WHAT TO LOOK FOR IN CONSOLE ────────────────────────────┐
+│                                                           │
+│  ✅ GOOD:                                                │
+│    === SIMPLE POPUP.JS LOADING ===                       │
+│    DOM Content Loaded!                                   │
+│    Analyze button: FOUND                                 │
+│    ✅ Analyze button listener attached                  │
+│    === SIMPLE SETUP COMPLETE ===                         │
+│                                                           │
+│  ❌ BAD:                                                 │
+│    (no messages at all)                                  │
+│    "NOT FOUND" for any element                           │
+│    Red error messages                                    │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ DIAGNOSTIC PASTE INTO CONSOLE ──────────────────────────┐
+│                                                           │
+│  console.log('analyzeBtn:', document.getElementById('analyzeBtn'));  │
+│  console.log('TextUtils:', window.TextUtils);            │
+│  console.log('Scripts:', document.scripts.length);       │
+│                                                           │
+│  Should show:                                            │
+│  - analyzeBtn: <button id="analyzeBtn">...</button>      │
+│  - TextUtils: {normalize: ƒ, tokenize: ƒ, ...}          │
+│  - Scripts: 3                                            │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ FILES YOU HAVE ─────────────────────────────────────────┐
+│                                                           │
+│  manifest.json          - Original (currently broken)     │
+│  manifest-test.json     - Test version (simple)           │
+│  popup.html            - Full UI                          │
+│  popup-test.html       - Simple test UI                   │
+│  popup.js              - Full code (debug version)        │
+│  popup-simple.js       - Minimal test code                │
+│  test.html             - Standalone test page             │
+│  run-test.sh           - Quick test script                │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ EXPECTED TEST RESULTS ──────────────────────────────────┐
+│                                                           │
+│  When you click "Test Analyze Button":                   │
+│  → Alert popup saying "Analyze button works!"            │
+│  → Console logs "🎉 ANALYZE BUTTON CLICKED!"            │
+│                                                           │
+│  When you move the slider:                               │
+│  → Value display updates (e.g., "1.3x")                  │
+│  → Console logs "🎚️ SLIDER MOVED TO: 1.3"              │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ IF TEST VERSION WORKS ──────────────────────────────────┐
+│                                                           │
+│  The test proves:                                        │
+│  ✅ Chrome extension context is fine                    │
+│  ✅ File loading works                                   │
+│  ✅ Event listeners work                                 │
+│  ✅ Utilities load correctly                             │
+│                                                           │
+│  Problem is: Full popup.js has a bug                     │
+│  Solution: I'll fix the full version                     │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+┌─ IF TEST VERSION FAILS ──────────────────────────────────┐
+│                                                           │
+│  Possible causes:                                        │
+│  ❌ Chrome version too old (need 90+)                   │
+│  ❌ Extension not loaded properly                        │
+│  ❌ Files in wrong location                              │
+│  ❌ Chrome cache issue                                   │
+│                                                           │
+│  Try:                                                    │
+│  1. Check Chrome version: chrome://settings/help         │
+│  2. Remove + reinstall extension                         │
+│  3. Try test.html in browser (not as extension)          │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════
+
+QUICK START: Run this command and follow instructions:
+
+  cd /Users/ashleymaria/chrome-boiler/chrome-boiler/jobscan-lite
+  ./run-test.sh
+
+Then report what you see in the Console!
+
+═══════════════════════════════════════════════════════════
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResuMatch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>ResuMatch — Free Offline Keyword Analyzer</h1>
+    <p>Compare your résumé against job descriptions—100% offline and private</p>
+  </div>
+
+  <!-- Main container -->
+  <div class="container">
+    <!-- Input Section -->
+    <section class="section">
+      <h2 class="section-title">Inputs</h2>
+      
+      <div class="form-group">
+        <label for="jobTitle">Job Title (optional — adds weighting boost)</label>
+        <input type="text" id="jobTitle" placeholder="e.g., Senior HR Manager">
+      </div>
+
+      <div class="form-group">
+        <label for="jobDescription">Job Description (required)</label>
+        <textarea id="jobDescription" placeholder="Paste the job description here..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="resume">Résumé (required)</label>
+        <textarea id="resume" placeholder="Paste your résumé here..." required></textarea>
+      </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section class="section">
+      <h2 class="section-title">Settings</h2>
+      <p style="font-size: 11px; color: var(--text-secondary); margin-bottom: 12px;">
+        💡 Adjust weights to emphasize different keyword types. Higher weights = more important. 
+        <a href="#" id="settingsHelp" style="color: var(--accent-primary); text-decoration: none;">Learn more</a>
+      </p>
+      
+      <div class="slider-group">
+        <div class="slider-control">
+          <div class="slider-label">
+            <span>Title Weight</span>
+            <span class="slider-value" id="titleWeightValue">1.2x</span>
+          </div>
+          <input type="range" id="titleWeight" min="1.0" max="2.0" step="0.1" value="1.2">
+          <p class="slider-help">Boosts keywords from Job Title field</p>
+        </div>
+
+        <div class="slider-control">
+          <div class="slider-label">
+            <span>Hard Skills</span>
+            <span class="slider-value" id="hardSkillsWeightValue">1.5x</span>
+          </div>
+          <input type="range" id="hardSkillsWeight" min="1.0" max="3.0" step="0.1" value="1.5">
+          <p class="slider-help">Technical tools & systems (Excel, SQL, etc.)</p>
+        </div>
+
+        <div class="slider-control">
+          <div class="slider-label">
+            <span>Soft Skills</span>
+            <span class="slider-value" id="softSkillsWeightValue">1.0x</span>
+          </div>
+          <input type="range" id="softSkillsWeight" min="1.0" max="2.0" step="0.1" value="1.0">
+          <p class="slider-help">Leadership, communication, teamwork</p>
+        </div>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="removeStopwords" checked>
+        <label for="removeStopwords">Remove common stopwords</label>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="section">
+      <div class="button-group">
+        <button class="btn-primary" id="analyzeBtn">Analyze</button>
+        <button class="btn-secondary" id="clearBtn">Clear</button>
+        <button class="btn-secondary" id="exportBtn">Export (.txt)</button>
+        <button class="btn-secondary" id="copyBtn">Copy</button>
+        <button class="btn-secondary" id="sidePanelBtn" title="Open in side panel - stays open while browsing">📌 Pin to Side</button>
+      </div>
+    </section>
+
+    <!-- Results Section (hidden initially) -->
+    <section id="results" class="hidden">
+      <h2 class="section-title">Results</h2>
+
+      <!-- Score Display -->
+      <div class="results-header">
+        <div class="score-display">
+          <div class="score-number" id="scoreNumber">0</div>
+          <div>
+            <div class="score-label">Match Score</div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="score-note" id="scoreNote"></div>
+      </div>
+
+      <!-- Missing Keywords -->
+      <div class="keywords-container">
+        <h3 class="section-title">Missing Keywords</h3>
+        <div class="keywords-tags" id="missingKeywords"></div>
+      </div>
+
+      <!-- Hard Skills Table -->
+      <div class="table-container">
+        <h3 class="section-title">Hard Skills Coverage</h3>
+        <table id="hardSkillsTable">
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th class="text-center">In JD</th>
+              <th class="text-center">In Résumé</th>
+            </tr>
+          </thead>
+          <tbody id="hardSkillsBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Soft Skills Table -->
+      <div class="table-container">
+        <h3 class="section-title">Soft Skills Coverage</h3>
+        <table id="softSkillsTable">
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th class="text-center">In JD</th>
+              <th class="text-center">In Résumé</th>
+            </tr>
+          </thead>
+          <tbody id="softSkillsBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Top Terms TF-IDF Table -->
+      <div class="table-container">
+        <h3 class="section-title">Top Terms (TF-IDF)</h3>
+        <table id="topTermsTable">
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th class="text-center">JD Score</th>
+              <th class="text-center">Résumé Score</th>
+            </tr>
+          </thead>
+          <tbody id="topTermsBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Explanation -->
+      <details>
+        <summary>How this score is calculated</summary>
+        <p><strong>Algorithm Overview:</strong></p>
+        <p>
+          This tool uses TF-IDF (Term Frequency-Inverse Document Frequency) analysis to compute a similarity score 
+          between your résumé and the job description. Here's how it works:
+        </p>
+        <ul>
+          <li><strong>Normalization:</strong> Text is lowercased and cleaned, preserving technical notation like C++, C#, .NET</li>
+          <li><strong>Tokenization:</strong> Text is split into words, with optional stopword removal (common words like "the", "and", "is")</li>
+          <li><strong>Stemming:</strong> Light stemming reduces words to their base form (e.g., "recruiting" → "recruit")</li>
+          <li><strong>Weighting:</strong> Key terms are boosted based on your settings:
+            <ul>
+              <li>Title terms get extra weight (default 1.2x)</li>
+              <li>Hard skills (technical tools, certifications) get higher weight (default 1.5x)</li>
+              <li>Soft skills (leadership, communication) get standard weight (default 1.0x)</li>
+            </ul>
+          </li>
+          <li><strong>TF-IDF Calculation:</strong> Each term gets a score based on how frequently it appears (TF) and how unique it is (IDF)</li>
+          <li><strong>Cosine Similarity:</strong> The angle between JD and résumé vectors determines match score (0-100)</li>
+        </ul>
+        <p>
+          <strong>Missing Keywords:</strong> Terms that appear in the job description but not in your résumé. 
+          Critical keywords (hard/soft skills and top TF-IDF terms) are highlighted in red.
+        </p>
+        <p>
+          <strong>Score Bands:</strong><br>
+          • 85-100: Excellent match<br>
+          • 70-84: Strong match<br>
+          • 55-69: Decent match<br>
+          • 0-54: Low match
+        </p>
+      </details>
+    </section>
+  </div>
+
+  <!-- Scripts in required order -->
+  <script src="utils/text.js"></script>
+  <script src="utils/tfidf.js"></script>
+  <script src="popup-fixed.js"></script>
+</body>
+</html>
+
